@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.dakonxd.taskapi.security.dtos.JwtRequest;
-import ru.dakonxd.taskapi.security.dtos.RegistrationUserDto;
+import ru.dakonxd.taskapi.security.entities.dtos.JwtRequest;
+import ru.dakonxd.taskapi.security.entities.dtos.RegistrationUserDto;
 import ru.dakonxd.taskapi.security.service.AuthService;
 
 @RestController

@@ -1,5 +1,6 @@
 package ru.dakonxd.taskapi.security.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.dakonxd.taskapi.security.entities.User;
 import ru.dakonxd.taskapi.security.repositories.UserRepository;
-import ru.dakonxd.taskapi.security.dtos.RegistrationUserDto;
+import ru.dakonxd.taskapi.security.entities.dtos.RegistrationUserDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class UserService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(
-                String.format("Пользователь '%s' не найден", username)
+                String.format("User '%s' not found", username)
         ));
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
@@ -62,4 +63,5 @@ public class UserService implements UserDetailsService {
         user.setRoles(List.of(roleService.getUserRole()));
         return userRepository.save(user);
     }
+
 }

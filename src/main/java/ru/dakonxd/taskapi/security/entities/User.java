@@ -1,9 +1,11 @@
 package ru.dakonxd.taskapi.security.entities;
 
 import lombok.Data;
+import ru.dakonxd.taskapi.taskmanager.entities.Task;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,6 +25,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Task> tasks;
+
     @ManyToMany
     @JoinTable(
             name = "users_roles",
@@ -30,4 +35,5 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Collection<Role> roles;
+
 }

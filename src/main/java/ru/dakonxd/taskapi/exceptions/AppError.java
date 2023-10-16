@@ -1,4 +1,4 @@
-package ru.dakonxd.taskapi.security.exceptions;
+package ru.dakonxd.taskapi.exceptions;
 
 import lombok.Data;
 

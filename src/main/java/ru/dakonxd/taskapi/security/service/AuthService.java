@@ -10,11 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.dakonxd.taskapi.security.entities.User;
-import ru.dakonxd.taskapi.security.exceptions.AppError;
-import ru.dakonxd.taskapi.security.dtos.JwtRequest;
-import ru.dakonxd.taskapi.security.dtos.JwtResponse;
-import ru.dakonxd.taskapi.security.dtos.RegistrationUserDto;
-import ru.dakonxd.taskapi.security.dtos.UserDto;
+import ru.dakonxd.taskapi.exceptions.AppError;
+import ru.dakonxd.taskapi.security.entities.dtos.JwtRequest;
+import ru.dakonxd.taskapi.security.entities.dtos.JwtResponse;
+import ru.dakonxd.taskapi.security.entities.dtos.RegistrationUserDto;
+import ru.dakonxd.taskapi.security.entities.dtos.UserDto;
 import ru.dakonxd.taskapi.security.utils.JwtTokenUtils;
 
 @Service

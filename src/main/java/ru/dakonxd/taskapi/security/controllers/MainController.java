@@ -9,10 +9,10 @@ import java.security.Principal;
 @RestController
 @RequiredArgsConstructor
 public class MainController {
-    @GetMapping("/unsecured")
-    public String unsecuredData() {
-        return "Unsecured data";
-    }
+//    @GetMapping("/createtask")
+//    public String unsecuredData() {
+//        return "Unsecured data";
+//    }
 
     @GetMapping("/secured")
     public String securedData() {

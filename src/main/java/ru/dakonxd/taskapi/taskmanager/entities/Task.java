@@ -1,21 +1,17 @@
-package ru.dakonxd.taskapi.taskmanager.model;
+package ru.dakonxd.taskapi.taskmanager.entities;
 
 import javax.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import ru.dakonxd.taskapi.security.entities.User;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Data
 @Table(name = "tasks")
-@Getter
-@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@NoArgsConstructor
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +29,11 @@ public class Task {
     @Column(name = "created")
     LocalDateTime created;
 
+    @Column(name = "action_time")
+    Integer actionTime;
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    User user;
+    User owner;
 
 }

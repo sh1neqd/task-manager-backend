@@ -1,4 +1,4 @@
-package ru.dakonxd.taskapi.security.dtos;
+package ru.dakonxd.taskapi.security.entities.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

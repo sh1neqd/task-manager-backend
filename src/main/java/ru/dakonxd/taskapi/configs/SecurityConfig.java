@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests()
-                .antMatchers("/mytasks").authenticated()
+                .antMatchers("/createtask").authenticated()
                 .antMatchers("/info").authenticated()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().permitAll()
