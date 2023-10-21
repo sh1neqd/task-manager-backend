@@ -29,9 +29,6 @@ public class Task {
     @Column(name = "created")
     LocalDateTime created;
 
-    @Column(name = "action_time")
-    Integer actionTime;
-
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     User owner;

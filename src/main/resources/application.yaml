@@ -4,7 +4,7 @@ server:
     context-path:
 jwt:
   secret: 984hg493gh0439rthr0429uruj2309yh937gc763fe87t3f89723gf
-  lifetime: 10m
+  lifetime: 30m
 
 spring:
   mvc:
@@ -26,3 +26,12 @@ spring:
     password: postgres
   main:
     allow-circular-references: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+
+rabbit:
+  queue: EMAIL_SENDING_TASKS
+  exchange: exchange
+  routing-key: TaskTrackerKey
+

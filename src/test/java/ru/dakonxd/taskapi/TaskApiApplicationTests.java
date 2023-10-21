@@ -1,10 +1,10 @@
-package ru.flamexander.spring.security;
+package ru.dakonxd.taskapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SecurityJwtApplicationTests {
+class TaskApiApplicationTests {
 
 	@Test
 	void contextLoads() {
