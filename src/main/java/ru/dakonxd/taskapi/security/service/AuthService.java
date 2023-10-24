@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import ru.dakonxd.taskapi.emailgreeting.services.EmailSenderService;
 import ru.dakonxd.taskapi.security.entities.User;
 import ru.dakonxd.taskapi.exceptions.AppError;
 import ru.dakonxd.taskapi.security.entities.dtos.JwtRequest;
@@ -23,6 +24,7 @@ public class AuthService {
     private final UserService userService;
     private final JwtTokenUtils jwtTokenUtils;
     private final AuthenticationManager authenticationManager;
+    private final EmailSenderService emailSenderService;
 
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         try {
@@ -43,6 +45,10 @@ public class AuthService {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "User with the specified name already exists"), HttpStatus.BAD_REQUEST);
         }
         User user = userService.createNewUser(registrationUserDto);
+        emailSenderService.sendEmail(user);
+        System.out.println("user has been registered");
         return ResponseEntity.ok(new UserDto(user.getId(), user.getUsername(), user.getEmail()));
     }
+
+
 }

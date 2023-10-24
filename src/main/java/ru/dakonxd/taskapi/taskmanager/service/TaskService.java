@@ -25,7 +25,7 @@ public class TaskService {
         task.setName(taskDto.getName());
         task.setDescription(taskDto.getDescription());
         task.setActive(true);
-        task.setCreated(LocalDateTime.now());
+        task.setModified(LocalDateTime.now());
         Optional<User> user = userService.findByUsername(username);
         task.setOwner(user.get());
         taskRepository.save(task);

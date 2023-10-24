@@ -19,6 +19,7 @@ public class EmailSenderService {
     private final EmailCreatorService emailCreatorService;
     private final RabbitProducer rabbitProducer;
 
+
     public void sendEmail(User user) {
         List<User> users = new ArrayList<>(List.of(user));
         List<EmailDTO> emailMessages = emailCreatorService.getEmailMessages(users);

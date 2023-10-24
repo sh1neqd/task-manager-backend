@@ -25,7 +25,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Task> tasks;
 
     @ManyToMany

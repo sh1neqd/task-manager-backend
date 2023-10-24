@@ -26,8 +26,8 @@ public class Task {
     @Column(name = "is_active")
     boolean isActive;
 
-    @Column(name = "created")
-    LocalDateTime created;
+    @Column(name = "modified")
+    LocalDateTime modified;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
