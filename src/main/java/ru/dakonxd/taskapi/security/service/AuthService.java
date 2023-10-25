@@ -46,7 +46,6 @@ public class AuthService {
         }
         User user = userService.createNewUser(registrationUserDto);
         emailSenderService.sendEmail(user);
-        System.out.println("user has been registered");
         return ResponseEntity.ok(new UserDto(user.getId(), user.getUsername(), user.getEmail()));
     }
 
